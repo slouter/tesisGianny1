@@ -1,0 +1,54 @@
+import java.sql.*;
+
+public class MiConexion{
+	static {
+		try{
+			class.forname("com.mysql.jdbc.Driver");
+		      }
+		catch(ClassNotFoundException e){
+			e.printStackTrace();
+		      }
+	            }
+public Connection getConnection(){
+	Connection cnx=null;
+	try{
+		cnx=DriverManager.getConnection("jdbc:mysql://localhost:3306/ejemplo","root","mysql");
+}catch(SqlException e){
+	e.printStackTrace();
+}
+return cnx;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+package controller;
+import java.sql.*;
+
+public class MiConexion {	
+
+	public static void main(String[] args) throws ClassNotFoundException {
+		//variables de la conexion
+		String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+		String url="jdbc:sqlserver://localhost:3306;databaseName=Cnx";
+		String uid="sa";
+		String pwd="sql";		
+		
+		Connection cnx=null;
+			
+			try {
+				Class.forName(driver);
+				cnx=DriverManager.getConnection(url, uid, pwd);
+			} catch (Exception e) {
+				e.getMessage();;
+			}
+	}
+}
